@@ -8,5 +8,5 @@ OAUTH_TOKEN = '20a0f2dbe187e1c2c28762c0d0932dcbdfb664ea'
 
 AUTHORIZE_REQUEST_URL = 'https://clever.com/oauth/authorize'
 TOKEN_REQUEST_URL = 'https://clever.com/oauth/tokens'
-ME_API_URL = 'https://api.clever.com/me'
-OAUTH_URL = 'https://still-tor-6820.herokuapp.com/oauth'
+IDENTITY_API_URL = 'https://api.clever.com/me'
+OAUTH_CALLBACK_URL = 'https://still-tor-6820.herokuapp.com/oauth'

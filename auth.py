@@ -16,7 +16,7 @@ def create_login_url():
 
   params = {
     'response_type' : 'code',
-    'redirect_uri' : constants.OAUTH_URL,
+    'redirect_uri' : constants.OAUTH_CALLBACK_URL,
     'client_id' : constants.CLIENT_ID,
     'scope' : 'read:user',
     'district_id' : constants.DISTRICT_ID
@@ -43,7 +43,7 @@ def get_auth_token(code):
   payload = {
     'code': code,
     'grant_type': 'authorization_code',
-    'redirect_uri': constants.OAUTH_URL
+    'redirect_uri': constants.OAUTH_CALLBACK_URL
   }
 
   r = requests.post(constants.TOKEN_REQUEST_URL, data=payload,
@@ -60,7 +60,7 @@ def login_user(access_token):
   "Logs in the user by creating a temporary session."
 
   headers = {'Authorization': 'Bearer ' + access_token}
-  r = requests.get(constants.ME_API_URL, headers=headers)
+  r = requests.get(constants.IDENTITY_API_URL, headers=headers)
 
   session['user_id'] = r.json()['data']['id']
   session['type'] = r.json()['data']['type']
